@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contactar">
+    <div class="contact-container">
+        <h1>Contacta conmigo 📬</h1>
+        <p>
+            ¿Tienes alguna propuesta o duda? Rellena el formulario y te responderé lo antes posible.
+        </p>
+
+        <form action="https://formspree.io/f/xzderwep" method="POST" class="contact-form">
+            
+            <label>
+                Tu Email:
+                <input type="email" name="email" placeholder="ejemplo@correo.com" required>
+            </label>
+            
+            <label>
+                Mensaje:
+                <textarea name="message" rows="5" placeholder="Hola, me gustaría hablar contigo sobre..." required></textarea>
+            </label>
+
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </div>
+</Layout>
+
+<style>
+    .contact-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding-top: 2rem;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    p { color: #ccc; margin-bottom: 2rem; }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        background: #23262d;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid #333;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        color: white;
+        font-weight: bold;
+    }
+
+    input, textarea {
+        background: #1a1a1a;
+        border: 1px solid #444;
+        color: white;
+        padding: 0.8rem;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    input:focus, textarea:focus {
+        outline: 2px solid #4f39fa;
+        border-color: transparent;
+    }
+
+    button {
+        background: #4f39fa;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    button:hover {
+        background: #3e2cdb;
+    }
+</style>
