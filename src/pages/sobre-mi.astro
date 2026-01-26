@@ -1,5 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Badge from '../components/Badge.astro';
+
+const skills = [
+  {
+    category: "Lenguajes",
+    items: ["HTML5", "CSS3", "JavaScript (ES6+)", "Python", "SQL"]
+  },
+  {
+    category: "Frameworks & Librerías",
+    items: ["Astro 🚀", "React", "Tailwind CSS", "Bootstrap", "Node.js"]
+  },
+  {
+    category: "Herramientas & Otros",
+    items: ["Git", "GitHub", "VS Code", "Figma", "Postman", "Terminal"]
+  }
+];
 ---
 
 <Layout title="Sobre mí">
@@ -31,6 +47,25 @@ import Layout from '../layouts/Layout.astro';
                 </section>
             </div>
         </div>
+        <section class="skills-section">
+            <h2>🛠️ Mi Stack Tecnológico</h2>
+            <p class="skills-intro">Estas son las tecnologías con las que trabajo habitualmente:</p>
+            
+            <div class="skills-grid">
+                <!-- Recorremos las categorías -->
+                {skills.map((group) => (
+                    <div class="skill-card">
+                        <h3>{group.category}</h3>
+                        <div class="badges-container">
+                            <!-- Recorremos los items de cada categoría -->
+                            {group.items.map((item) => (
+                                <Badge>{item}</Badge>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
     </div>
 </Layout>
 
@@ -57,5 +92,49 @@ import Layout from '../layouts/Layout.astro';
     @media (max-width: 768px) {
         .split { flex-direction: column-reverse; }
         .about-img { transform: rotate(0); width: 200px; margin: 0 auto; display: block; }
+    }
+
+    .skills-section {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333; /* Una línea separadora sutil */
+    }
+
+    .skills-intro {
+        color: #aaa;
+        margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+        display: grid;
+        /* Esto crea columnas automáticas. Si cabe una, pone una. Si caben tres, pone tres. */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .skill-card {
+        background: #23262d;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid #333;
+        transition: transform 0.2s;
+    }
+
+    .skill-card:hover {
+        border-color: #555;
+        transform: translateY(-5px); /* Pequeño salto al pasar el ratón */
+    }
+
+    .skill-card h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #4f39fa; /* Color morado para los títulos */
+        font-size: 1.2rem;
+    }
+
+    .badges-container {
+        display: flex;
+        flex-wrap: wrap; /* Permite que los badges bajen de línea si no caben */
+        gap: 0.5rem; /* Espacio entre badges */
     }
 </style>
