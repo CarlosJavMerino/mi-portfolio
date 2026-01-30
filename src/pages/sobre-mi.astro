@@ -5,16 +5,29 @@ import Badge from '../components/Badge.astro';
 const skills = [
   {
     category: "Lenguajes",
-    items: ["HTML5", "CSS3", "JavaScript (ES6+)", "Python", "SQL"]
+    items: ["Dart", "Python", "JavaScript (ES6+)", "TypeScript", "SQL", "Java"]
   },
   {
-    category: "Frameworks & Librerías",
-    items: ["Astro 🚀", "React", "Tailwind CSS", "Bootstrap", "Node.js"]
+    category: "Desarrollo Móvil (Especialidad)",
+    items: ["Flutter", "BLoC / Cubit", "Clean Architecture", "Firebase"]
+  },
+  {
+    category: "Frameworks & Web",
+    items: ["Angular", "HTML5", "CSS3", "Spring Boot", "APIs REST"]
   },
   {
     category: "Herramientas & Otros",
-    items: ["Git", "GitHub", "VS Code", "Figma", "Postman", "Terminal"]
+    items: ["Git", "GitHub", "Docker", "Postman", "Principios SOLID", "Scrum"]
   }
+];
+
+const education = [
+  {
+    date: "2024",
+    title: "Master en React: De cero a experto",
+    platform: "Udemy",
+    description: "Aprendí Hooks, Redux, Context API y a desplegar aplicaciones MERN Stack."
+  },
 ];
 ---
 
@@ -25,34 +38,28 @@ const skills = [
         <div class="split">
             <div class="text">
                 <section>
-                    <h2>El lado Profesional</h2>
+                    <h2>¿Quién soy?</h2>
                     <p>
-                        Llevo programando desde [Año]. Me especializo en el ecosistema de JavaScript, 
-                        con un fuerte enfoque en el rendimiento y la accesibilidad. Me encanta resolver 
-                        problemas complejos y optimizar código para que vuele.
+                        Un desarrollador multiplataforma con el foco puesto en la calidad del software. Mi experiencia se centra en Flutter y Angular, con un fuerte interés por el desarrollo móvil y el backend con Java/Spring Boot. En mis últimas prácticas, no solo aprendí a programar apps, sino a trabajar en entornos profesionales con Git, APIs REST y metodologías Agile.
                     </p>
                     <p>
-                        Actualmente estoy buscando oportunidades donde pueda aportar mi experiencia en 
-                        <strong>Astro, React y Node.js</strong>.
+                        
                     </p>
                 </section>
 
                 <section>
-                    <h2>El lado Personal</h2>
+                    <h2>¿Qué hago cuando no estoy programando?</h2>
                     <p>
-                        Cuando no estoy delante de una pantalla, me encontrarás haciendo senderismo, 
-                        leyendo ciencia ficción o intentando hacer la pizza perfecta. Creo que el equilibrio 
-                        vida-trabajo es clave para mantener la creatividad.
+                        Seguramente me encuentres bajo el agua haciendo buceo, recorriendo algún país nuevo o en un campo de fútbol. Estas aficiones me ayudan a desconectar, recargar pilas y volver al teclado con una perspectiva fresca para solucionar bugs.
                     </p>
                 </section>
             </div>
         </div>
         <section class="skills-section">
             <h2>🛠️ Mi Stack Tecnológico</h2>
-            <p class="skills-intro">Estas son las tecnologías con las que trabajo habitualmente:</p>
+            <p class="skills-intro">Estas son las tecnologías que puedo utilizar:</p>
             
             <div class="skills-grid">
-                <!-- Recorremos las categorías -->
                 {skills.map((group) => (
                     <div class="skill-card">
                         <h3>{group.category}</h3>
@@ -61,6 +68,23 @@ const skills = [
                             {group.items.map((item) => (
                                 <Badge>{item}</Badge>
                             ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+        <section class="education-section">
+            <h2>🎓 Formación Continua</h2>
+            
+            <div class="timeline">
+                {education.map((item) => (
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">{item.date}</span>
+                            <h3 class="timeline-title">{item.title}</h3>
+                            <span class="timeline-platform">{item.platform}</span>
+                            <p class="timeline-desc">{item.description}</p>
                         </div>
                     </div>
                 ))}
@@ -136,5 +160,77 @@ const skills = [
         display: flex;
         flex-wrap: wrap; /* Permite que los badges bajen de línea si no caben */
         gap: 0.5rem; /* Espacio entre badges */
+    }
+
+    .education-section {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333;
+        margin-bottom: 4rem; /* Un poco de aire al final */
+    }
+
+    .timeline {
+        position: relative;
+        margin-top: 2rem;
+        padding-left: 1rem; /* Espacio para la línea */
+    }
+
+    /* La línea vertical gris */
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #333;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-left: 2rem; /* Espacio entre la línea y el texto */
+        padding-bottom: 2.5rem; /* Espacio entre un item y otro */
+    }
+
+    /* El puntito redondo en la línea */
+    .timeline-marker {
+        position: absolute;
+        left: -5px; /* Para centrarlo en la línea de 2px */
+        top: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #4f39fa; /* Tu color principal */
+        border: 2px solid #13151a; /* Borde oscuro para separarlo de la línea */
+        box-shadow: 0 0 10px rgba(79, 57, 250, 0.5); /* Brillo */
+    }
+
+    .timeline-date {
+        font-size: 0.9rem;
+        color: #4f39fa;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+        font-size: 1.2rem;
+        margin: 0;
+        color: white;
+    }
+
+    .timeline-platform {
+        font-size: 0.9rem;
+        color: #888;
+        font-style: italic;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+        color: #ccc;
+        margin: 0;
+        line-height: 1.5;
+        font-size: 0.95rem;
     }
 </style>
