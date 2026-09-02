@@ -23,12 +23,33 @@ const skills = [
 
 const education = [
   {
-    date: "2024",
-    title: "Master en React: De cero a experto",
-    platform: "Udemy",
-    description: "Aprendí Hooks, Redux, Context API y a desplegar aplicaciones MERN Stack."
+    date: "2025",
+    title: "Grado Superior de Desarrollo de Aplicaciones Multiplataforma",
+    platform: "Salesianos de Córdoba",
+    description: ""
   },
-];
+  {
+    date: "2026",
+    title: "Universidad Python - Cero a Experto",
+    platform: "Udemy",
+    description: "Aprendí a crear aplicaciones reales con Python, Django, Flask, Backend con Django REST, Flask REST, FastAPI, Front End con Angular y React, Flet (Flutter + Python), PySide, Tkinter, SqlAlchemy",
+    certificate: "https://www.udemy.com/certificate/UC-3997fcab-b7dd-4f6c-bedd-f85eefec5164/"
+  },
+  {
+    date: "2026",
+    title: "Universidad Desarrollo Web - FrontEnd Web Developer!",
+    platform: "Udemy",
+    description: "Aprendí a crear aplicaciones Web desde cero con HTML, CSS y Javascript",
+    certificate: "https://www.udemy.com/certificate/UC-ecfa7d0e-4804-45f1-9563-2464b5705f6c/"
+  },
+  {
+    date: "2026",
+    title: "Universidad Angular - De Cero a Experto",
+    platform: "Udemy",
+    description: "Aprendí a desarrollar aplicaciones web modernas, complejas, con capacidad de respuesta y escalables con Angular",
+    certificate: "https://www.udemy.com/certificate/UC-ac855550-4df9-42fd-b532-0fd1a17f6c33/"
+  }
+]
 ---
 
 <Layout title="Sobre mí">
@@ -40,7 +61,7 @@ const education = [
                 <section>
                     <h2>¿Quién soy?</h2>
                     <p>
-                        Un desarrollador multiplataforma con el foco puesto en la calidad del software. Mi experiencia se centra en Flutter y Angular, con un fuerte interés por el desarrollo móvil y el backend con Java/Spring Boot. En mis últimas prácticas, no solo aprendí a programar apps, sino a trabajar en entornos profesionales con Git, APIs REST y metodologías Agile.
+                        Un desarrollador multiplataforma con el foco puesto en la calidad del software. Mi experiencia se centra en Flutter y Angular, con un fuerte interés por el desarrollo móvil y el backend con Python y Java/Spring Boot. En mis últimas prácticas, no solo aprendí a programar apps, sino a trabajar en entornos profesionales con Git, APIs REST y metodologías Agile.
                     </p>
                     <p>
                         
@@ -50,7 +71,7 @@ const education = [
                 <section>
                     <h2>¿Qué hago cuando no estoy programando?</h2>
                     <p>
-                        Seguramente me encuentres bajo el agua haciendo buceo, recorriendo algún país nuevo o en un campo de fútbol. Estas aficiones me ayudan a desconectar, recargar pilas y volver al teclado con una perspectiva fresca para solucionar bugs.
+                        Intento descansar de todo lo relacionado con las tecnologías, me gusta salir a la calle correr, al gimnasio, pasar el rato con amigos, etc. Soy un apasionado del fútbol, durante una gran parte de mi vida jugando y ahora viéndolo. También he descubierto hace poco el mundo del buceo y siempre que puedo intento organizar una escapada para hacer unas inmersiones.
                     </p>
                 </section>
             </div>
@@ -85,6 +106,13 @@ const education = [
                             <h3 class="timeline-title">{item.title}</h3>
                             <span class="timeline-platform">{item.platform}</span>
                             <p class="timeline-desc">{item.description}</p>
+                            
+                            <!-- NUEVO: Botón de certificado condicional -->
+                            {item.certificate && (
+                                <a href={item.certificate} target="_blank" rel="noopener noreferrer" class="btn-cert">
+                                    📄 Ver certificado
+                                </a>
+                            )}
                         </div>
                     </div>
                 ))}
@@ -232,5 +260,27 @@ const education = [
         margin: 0;
         line-height: 1.5;
         font-size: 0.95rem;
+    }
+
+    /* Estilo del botón de Certificado */
+    .btn-cert {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.4rem 0.8rem;
+        background: #1a1a1a;
+        border: 1px solid #444;
+        border-radius: 6px;
+        color: #a6d1ff; /* Un azul claro */
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+    
+    .btn-cert:hover {
+        background: #4f39fa; /* Tu color principal */
+        color: white;
+        border-color: #4f39fa;
+        transform: translateY(-2px); /* Pequeño saltito */
     }
 </style>
